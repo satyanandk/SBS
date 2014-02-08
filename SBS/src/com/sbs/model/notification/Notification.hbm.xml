@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sbs.model.notification">
+	<class name="Notification" table="NOTIFICATION">
+		<id name="notificationId" column="NOTIFICATION_ID">
+			<generator class="native" />
+		</id>
+		<property name="userId">
+			<column name="USERID" length="45" not-null="true" />
+		</property>
+		<property name="requesterId">
+			<column name="REQUESTER_ID" length="45" not-null="true" />
+		</property>
+		<property name="notificationType">
+			<column name="TYPE" length="5" not-null="true" />
+		</property>
+		<property name="key1" type="integer">
+			<column name="KEY1" not-null="true" />
+		</property>
+		<property name="status">
+			<column name="STATUS" length="5" not-null="true" />
+		</property>
+		<property name="approvedDate" type="date">
+			<column name="APPROVED_DATE" not-null="false" />
+		</property>
+		<property name="timeoutDays" type="integer">
+			<column name="TIMEOUT_DAYS" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

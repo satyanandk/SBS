@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sbs.model.crypto">
+	<class name="UserPki" table="USER_PKI">
+		<id name="userId" column="USER_ID">
+		</id>
+		<property name="privateKey">
+			<column name="PRIVATE_KEY" length="2000" not-null="true" />
+		</property>
+		<property name="publicKey">
+			<column name="PUBLIC_KEY" length="2000" not-null="false"/>
+		</property>		
+	</class>
+</hibernate-mapping>

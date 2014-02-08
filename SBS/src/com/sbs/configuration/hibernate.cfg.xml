@@ -1,0 +1,47 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- hibernate dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/sbs</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">admin</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+        <!-- Automatic schema creation (begin) === -->
+       	<property name="hibernate.hbm2ddl.auto">update</property>
+
+
+        <!-- Simple memory-only cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- ############################################ -->
+        <!-- # mapping files with external dependencies # -->
+        <!-- ############################################ -->
+
+        <mapping resource="com/sbs/model/user/User.hbm.xml" />
+        <mapping resource="com/sbs/model/crypto/UserPki.hbm.xml" />
+		<mapping resource="com/sbs/model/transaction/Transaction.hbm.xml" />
+		<mapping resource="com/sbs/model/notification/Notification.hbm.xml" />
+         <mapping class = "com.sbs.model.userpassword.UserIDPasswordMappingEntity"/>
+        <mapping class="com.asu.ss.secure_banking_system.model.AccountEntity"/>
+        <mapping class="com.asu.ss.secure_banking_system.model.TransactionEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.RoleEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.UserEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.RequestEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.RoleRequestEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.TAARequestEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.OneTimePasswordEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.PageAuthorizationEntity"/>
+		<mapping class="com.asu.ss.secure_banking_system.model.MerchantRequestEntity"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sbs.model.transaction">
+	<class name="Transaction" table="TRANSACTION">
+		<id name="txnId" column="TXN_ID">
+			<generator class="native" />
+		</id>
+		<property name="txnType">
+			<column name="TXN_TYPE" length="45" not-null="true" />
+		</property>
+		<property name="txnDate" type="date">
+			<column name="TXN_DATE" not-null="true" />
+		</property>
+		<property name="fromAccountId">
+			<column name="FROM_ACCT" length="45" not-null="false" />
+		</property>
+		<property name="toAccountId">
+			<column name="TO_ACCT" length="45" not-null="false" />
+		</property>
+		<property name="fromUserId">
+			<column name="FROM_USER" length="45" not-null="false" />
+		</property>
+		<property name="toUserId">
+			<column name="TO_USER" length="45" not-null="false" />
+		</property>
+		<property name="amount" type="double">
+			<column name="AMOUNT" not-null="false" />
+		</property>
+		<property name="balance" type="double">
+			<column name="BALANCE" not-null="false" />
+		</property>
+		<property name="details">
+			<column name="DETAILS" length="2000" not-null="false" />
+		</property>
+		<!-- <property name="authRequested" type="string">
+			<column name="AUTH_REQUESTED" length="1" not-null="false" />
+		</property>
+		<property name="authorized" type="string">
+			<column name="AUTHORIZED" length="1" not-null="false" />
+		</property> -->
+	</class>
+</hibernate-mapping>
